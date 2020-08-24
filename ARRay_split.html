@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript function to create random background color</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    body {
+      background: white;
+      color: #323232;
+      margin: 0;
+      height: 100vh;
+      font-family: Helvetica neue, roboto;
+    }
+
+    div {
+      display: block;
+      width: 100%;
+      padding: 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div>
+      <BUTTon onclick="reset();"> START HERE</BUTTon>
+    </div>
+    
+    <div>
+      <label > ARRAY</label>
+      <input type="text" id="elements">
+      <button type="button" onclick="add_element_to_array();"> Add</button>
+      <span id="Array"></span>
+
+    </div>
+
+    <div>
+      <button type="button" onclick="array_max_consecutive_sum( array, n);"> find</button>
+    </div>
+    <div id="output">
+      Result =
+    </div>
+  </section>
+  <script>
+    var x = 0;
+    var n = 0;
+    var array = Array();
+
+    function reset() {
+      x = 0;
+      array = Array();
+      document.getElementById("elements").value = "";
+      document.getElementById("Array").innerHTML = "array = [" + array + "]";
+      document.getElementById("output").innerHTML ="Result = " ;
+
+    }
+
+    function add_element_to_array() {
+      array[x] = (document.getElementById("elements").value);
+      x++;
+      console.log('your log', array)
+      document.getElementById("elements").value = "";
+      document.getElementById("Array").innerHTML = "array = [" + array + "]";
+    }
+
+
+    function array_max_consecutive_sum(a ) {
+      var chunk;
+      document.getElementById("Array").innerHTML = "array = [" + a + "]";
+
+      while (a.length > 0) {
+
+        chunk = a.splice(0, 2);
+
+        document.getElementById("output").innerHTML = document.getElementById("output").innerHTML +" [" + chunk + "]";
+
+      }
+
+    }
+  </script>
+
+</body>
+
+</html>

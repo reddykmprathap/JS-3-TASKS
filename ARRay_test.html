@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript function to create random background color</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    body {
+      background: white;
+      color: #323232;
+      margin: 0;
+      height: 100vh;
+      font-family: Helvetica neue, roboto;
+    }
+
+    div {
+      display: block;
+      width: 100%;
+      padding: 10px;
+
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <div>
+      <BUTTon onclick="reset();"> START HERE</BUTTon>
+    </div>
+    <div>
+      <label > ARRAY</label>
+
+      <input type="number" id="elements">
+      <button type="button" onclick="add_element_to_array();"> Add</button>
+      <span id="Array"></span>
+
+    </div>
+    <div>
+      <label > N Value</label>
+
+      <input type="number" id="nValue">
+      <button type="button" onclick="display_n();"> Add</button>
+      <span id="num"></span>
+    </div>
+    <div>
+      <button type="button" onclick="array_max_consecutive_sum( array, n);"> find</button>
+    </div>
+    <div id="output"></div>
+  </section>
+  <script>
+    var x = 0;
+    var n = 0;
+    var array = Array();
+
+    function reset() {
+      x = 0;
+      n = 0;
+      array = Array();
+      document.getElementById("nValue").value = "";
+      document.getElementById("elements").value = "";
+      document.getElementById("Array").innerHTML = "array = [" + array + "]";
+      document.getElementById("num").innerHTML = "N = " + n + "";
+
+    }
+
+    function add_element_to_array() {
+      array[x] = Number(document.getElementById("elements").value);
+      x++;
+      console.log('your log', array)
+      document.getElementById("elements").value = "";
+      document.getElementById("Array").innerHTML = "array = [" + array + "]";
+    }
+
+    function display_n() {
+      n = Number(document.getElementById("nValue").value);
+
+      document.getElementById("nValue").value = "";
+      document.getElementById("num").innerHTML = "N = " + n + "";
+
+    }
+
+
+
+    function array_max_consecutive_sum(nums, k) {
+      let result = null;
+      let temp_sum = 0;
+
+      if (nums.length == 0) {
+        result = null;
+      } else {
+
+
+        for (var i = 0; i < k - 1; i++) {
+          temp_sum += nums[i];
+        }
+        for (var i = k - 1; i < nums.length; i++) {
+          temp_sum += nums[i];
+          if (temp_sum > result) {
+            result = temp_sum;
+          }
+          temp_sum -= nums[i - k + 1];
+        }
+
+      }
+      document.getElementById("output").innerHTML = "Result = " + result + "";
+
+    }
+  </script>
+
+</body>
+
+</html>

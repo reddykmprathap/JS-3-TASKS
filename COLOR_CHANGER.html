@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>  <meta charset="utf-8">
+  <title>JavaScript function to create random background color</title>
+    <style>
+    body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+button{
+  position: relative;
+    padding: 10px 30px;
+
+
+}
+span{
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  background-color: red;
+  text-align: center;
+  padding: 10px;
+  border-radius: 50%;
+}
+  </style>
+</head>
+<body>
+  <div>
+<button  onclick="random_bg_color();">click   <span  id="demo"></span> </button>
+
+<script>
+var count = 0;
+function random_bg_color() {
+  count++;
+    var x = Math.floor(Math.random() * 256);
+    var y = Math.floor(Math.random() * 256);
+    var z = Math.floor(Math.random() * 256);
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+ 
+document.getElementById("demo").innerHTML = count ;
+    document.body.style.background = bgColor;
+    }
+
+random_bg_color();
+</script>
+</div>
+</body>
+</html>
